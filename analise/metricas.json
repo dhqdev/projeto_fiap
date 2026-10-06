@@ -1,0 +1,308 @@
+{
+  "pedidos": 99441,
+  "clientes_unicos": 96096,
+  "vendedores": 3095,
+  "produtos": 32951,
+  "categorias": 73,
+  "periodo": [
+    "2016-09-04",
+    "2018-10-17"
+  ],
+  "status": {
+    "delivered": 0.9702,
+    "shipped": 0.0111,
+    "canceled": 0.0063,
+    "unavailable": 0.0061,
+    "invoiced": 0.0032,
+    "processing": 0.003,
+    "created": 0.0001,
+    "approved": 0.0
+  },
+  "gmv_pagamentos": 16008872.12,
+  "ticket_medio": 160.99,
+  "ticket_mediano": 105.29,
+  "pagamento_tipo": {
+    "credit_card": 0.7392,
+    "boleto": 0.1904,
+    "voucher": 0.0556,
+    "debit_card": 0.0147,
+    "not_defined": 0.0
+  },
+  "frete_sobre_preco": 0.166,
+  "entregues": 96470,
+  "taxa_atraso": 0.0677,
+  "prazo_real_mediano": 10.2,
+  "prazo_prometido_mediano": 23.2,
+  "atraso_mediano_dias": 7.5,
+  "atraso_por_uf": {
+    "AL": {
+      "pedidos": 397,
+      "atraso": 0.2141,
+      "prazo_mediano": 22.3329
+    },
+    "MA": {
+      "pedidos": 717,
+      "atraso": 0.1743,
+      "prazo_mediano": 19.1906
+    },
+    "SE": {
+      "pedidos": 335,
+      "atraso": 0.1522,
+      "prazo_mediano": 18.0143
+    },
+    "PI": {
+      "pedidos": 476,
+      "atraso": 0.1387,
+      "prazo_mediano": 16.2923
+    },
+    "CE": {
+      "pedidos": 1279,
+      "atraso": 0.1376,
+      "prazo_mediano": 18.2092
+    },
+    "RR": {
+      "pedidos": 41,
+      "atraso": 0.122,
+      "prazo_mediano": 25.0073
+    },
+    "BA": {
+      "pedidos": 3256,
+      "atraso": 0.1216,
+      "prazo_mediano": 16.914
+    },
+    "RJ": {
+      "pedidos": 12350,
+      "atraso": 0.1211,
+      "prazo_mediano": 12.0416
+    },
+    "PA": {
+      "pedidos": 946,
+      "atraso": 0.1121,
+      "prazo_mediano": 21.0784
+    },
+    "ES": {
+      "pedidos": 1995,
+      "atraso": 0.1073,
+      "prazo_mediano": 13.637
+    },
+    "PB": {
+      "pedidos": 517,
+      "atraso": 0.1044,
+      "prazo_mediano": 18.1524
+    },
+    "TO": {
+      "pedidos": 274,
+      "atraso": 0.0985,
+      "prazo_mediano": 15.8659
+    },
+    "MS": {
+      "pedidos": 701,
+      "atraso": 0.097,
+      "prazo_mediano": 13.9438
+    },
+    "PE": {
+      "pedidos": 1593,
+      "atraso": 0.096,
+      "prazo_mediano": 15.7028
+    },
+    "RN": {
+      "pedidos": 474,
+      "atraso": 0.0928,
+      "prazo_mediano": 16.0603
+    },
+    "SC": {
+      "pedidos": 3546,
+      "atraso": 0.0821,
+      "prazo_mediano": 13.0144
+    },
+    "GO": {
+      "pedidos": 1957,
+      "atraso": 0.0654,
+      "prazo_mediano": 13.9496
+    },
+    "RS": {
+      "pedidos": 5344,
+      "atraso": 0.0608,
+      "prazo_mediano": 13.1775
+    },
+    "MT": {
+      "pedidos": 886,
+      "atraso": 0.0598,
+      "prazo_mediano": 16.1091
+    },
+    "DF": {
+      "pedidos": 2080,
+      "atraso": 0.0567,
+      "prazo_mediano": 11.3649
+    },
+    "MG": {
+      "pedidos": 11354,
+      "atraso": 0.0457,
+      "prazo_mediano": 10.3135
+    },
+    "SP": {
+      "pedidos": 40494,
+      "atraso": 0.0449,
+      "prazo_mediano": 7.2103
+    },
+    "PR": {
+      "pedidos": 4923,
+      "atraso": 0.0404,
+      "prazo_mediano": 10.4255
+    },
+    "AC": {
+      "pedidos": 80,
+      "atraso": 0.0375,
+      "prazo_mediano": 18.3565
+    },
+    "AP": {
+      "pedidos": 67,
+      "atraso": 0.0299,
+      "prazo_mediano": 24.347
+    },
+    "RO": {
+      "pedidos": 243,
+      "atraso": 0.0288,
+      "prazo_mediano": 17.5824
+    },
+    "AM": {
+      "pedidos": 145,
+      "atraso": 0.0276,
+      "prazo_mediano": 25.8751
+    }
+  },
+  "atraso_por_mes": {
+    "2016-09": 1.0,
+    "2016-10": 0.0075,
+    "2016-12": 0.0,
+    "2017-01": 0.0293,
+    "2017-02": 0.0296,
+    "2017-03": 0.0456,
+    "2017-04": 0.0656,
+    "2017-05": 0.0299,
+    "2017-06": 0.0303,
+    "2017-07": 0.0279,
+    "2017-08": 0.0291,
+    "2017-09": 0.0439,
+    "2017-10": 0.0418,
+    "2017-11": 0.124,
+    "2017-12": 0.0746,
+    "2018-01": 0.057,
+    "2018-02": 0.1413,
+    "2018-03": 0.1896,
+    "2018-04": 0.045,
+    "2018-05": 0.0656,
+    "2018-06": 0.0116,
+    "2018-07": 0.0338,
+    "2018-08": 0.0619
+  },
+  "despacho_fora_prazo": 0.0903,
+  "p_atraso_se_vendedor_atrasou": 0.2082,
+  "p_atraso_se_vendedor_no_prazo": 0.0538,
+  "atrasados_com_despacho_fora_prazo": 0.2776,
+  "avaliacoes": 99224,
+  "avaliacoes_com_comentario": 0.413,
+  "dist_notas": {
+    "1": 0.1151,
+    "2": 0.0318,
+    "3": 0.0824,
+    "4": 0.1929,
+    "5": 0.5778
+  },
+  "nota_media_por_situacao": {
+    "Entregue com atraso": 2.27,
+    "Entregue no prazo": 4.29,
+    "Não entregue": 1.74
+  },
+  "pedidos_por_situacao": {
+    "Entregue no prazo": 89451,
+    "Entregue com atraso": 6381,
+    "Não entregue": 2841
+  },
+  "notas_baixas_por_situacao": {
+    "Entregue com atraso": 0.624,
+    "Entregue no prazo": 0.0926,
+    "Não entregue": 0.7811
+  },
+  "notas_baixas_total": 14486,
+  "composicao_notas_baixas": {
+    "Entregue no prazo": 0.5719,
+    "Entregue com atraso": 0.2749,
+    "Não entregue": 0.1532
+  },
+  "notas_baixas_com_comentario": 0.7477,
+  "comentarios_negativos_analisados": 10831,
+  "temas_comentarios_negativos": {
+    "Entrega atrasada ou não recebida": 0.4808,
+    "Produto errado, diferente ou incompleto": 0.1579,
+    "Falta de retorno do atendimento": 0.1456,
+    "Reembolso, troca ou cancelamento": 0.1406,
+    "Defeito, avaria ou baixa qualidade": 0.1017
+  },
+  "pedidos_multi_item": 0.0982,
+  "notas_baixas_multi_item": 0.2764,
+  "notas_baixas_item_unico": 0.127,
+  "pedidos_multi_vendedor": 0.0128,
+  "notas_baixas_multi_vendedor": 0.4739,
+  "clientes_recompra": 0.0312,
+  "recompra_janela_6m": 0.0408,
+  "recompra_primeiro_no_prazo": 0.0413,
+  "recompra_primeiro_atrasado": 0.0313,
+  "receita_top10pct_vendedores": 0.6749,
+  "vendedores_sp": 0.5974,
+  "produtos_sem_categoria": 0.0185,
+  "categorias_mais_vendidas": {
+    "cama_mesa_banho": {
+      "pedidos": 9313,
+      "nota": 3.9711,
+      "baixas": 0.1676
+    },
+    "beleza_saude": {
+      "pedidos": 8771,
+      "nota": 4.1807,
+      "baixas": 0.127
+    },
+    "esporte_lazer": {
+      "pedidos": 7669,
+      "nota": 4.1669,
+      "baixas": 0.1303
+    },
+    "informatica_acessorios": {
+      "pedidos": 6649,
+      "nota": 4.0274,
+      "baixas": 0.1603
+    },
+    "moveis_decoracao": {
+      "pedidos": 6398,
+      "nota": 4.01,
+      "baixas": 0.1668
+    }
+  },
+  "categorias_mais_criticadas": {
+    "moveis_escritorio": {
+      "pedidos": 1263,
+      "nota": 3.6184,
+      "baixas": 0.2264
+    },
+    "cama_mesa_banho": {
+      "pedidos": 9313,
+      "nota": 3.9711,
+      "baixas": 0.1676
+    },
+    "moveis_decoracao": {
+      "pedidos": 6398,
+      "nota": 4.01,
+      "baixas": 0.1668
+    },
+    "informatica_acessorios": {
+      "pedidos": 6649,
+      "nota": 4.0274,
+      "baixas": 0.1603
+    },
+    "bebes": {
+      "pedidos": 2861,
+      "nota": 4.0388,
+      "baixas": 0.1601
+    }
+  }
+}

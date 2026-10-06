@@ -1,0 +1,213 @@
+/* ---------- Fontes ---------- */
+@font-face { font-family: "Source Serif 4"; src: url(fontes/SourceSerif4-Regular.ttf); font-weight: 400; font-style: normal; }
+@font-face { font-family: "Source Serif 4"; src: url(fontes/SourceSerif4-Italic.ttf); font-weight: 400; font-style: italic; }
+@font-face { font-family: "Source Serif 4"; src: url(fontes/SourceSerif4-SemiBold.ttf); font-weight: 600; font-style: normal; }
+@font-face { font-family: "Source Serif 4"; src: url(fontes/SourceSerif4-SemiBoldItalic.ttf); font-weight: 600; font-style: italic; }
+@font-face { font-family: "Source Serif 4"; src: url(fontes/SourceSerif4-Bold.ttf); font-weight: 700; font-style: normal; }
+@font-face { font-family: "Inter"; src: url(fontes/Inter-Regular.otf); font-weight: 400; font-style: normal; }
+@font-face { font-family: "Inter"; src: url(fontes/Inter-Italic.otf); font-weight: 400; font-style: italic; }
+@font-face { font-family: "Inter"; src: url(fontes/Inter-Medium.otf); font-weight: 500; font-style: normal; }
+@font-face { font-family: "Inter"; src: url(fontes/Inter-SemiBold.otf); font-weight: 600; font-style: normal; }
+@font-face { font-family: "Inter"; src: url(fontes/Inter-Bold.otf); font-weight: 700; font-style: normal; }
+@font-face { font-family: "IBM Plex Mono"; src: url(fontes/IBMPlexMono-Regular.ttf); font-weight: 400; }
+@font-face { font-family: "IBM Plex Mono"; src: url(fontes/IBMPlexMono-Medium.ttf); font-weight: 500; }
+
+:root {
+  --tinta: #14213d;
+  --tinta-2: #3d4659;
+  --muted: #6b7486;
+  --azul: #2a78d6;
+  --azul-escuro: #1c5cab;
+  --azul-claro: #eef4fc;
+  --cinza-fundo: #f5f6f8;
+  --linha: #d5dbe5;
+  --magenta: #e5195f;
+}
+
+/* ---------- Páginas ---------- */
+@page {
+  size: A4;
+  margin: 27mm 20mm 22mm 28mm;
+  @top-left {
+    content: "Olist Intelligent Marketplace  ·  Relatório executivo da Fase 1";
+    font-family: Inter; font-size: 7.2pt; color: #8a93a3; letter-spacing: 0.02em;
+    vertical-align: bottom; padding-bottom: 5mm;
+  }
+  @top-right {
+    content: counter(page);
+    font-family: Inter; font-size: 8pt; font-weight: 600; color: var(--tinta);
+    vertical-align: bottom; padding-bottom: 5mm;
+  }
+}
+@page capa { margin: 0; @top-left { content: none; } @top-right { content: none; } }
+@page pre { @top-left { content: none; } @top-right { content: none; } }
+
+html { font-family: "Source Serif 4", serif; font-size: 10.2pt; line-height: 1.48; color: #1f2430; }
+body { margin: 0; }
+p { margin: 0 0 0.55em; text-align: justify; hyphens: auto; text-indent: 1.25cm; orphans: 3; widows: 3; }
+h1 + p, h2 + p, h3 + p, .sem-recuo, figure + p, .quadro + p, .destaque + p, ul + p, ol + p, pre + p, .tiles + p { text-indent: 0; }
+strong { font-weight: 600; color: #111827; }
+em { font-style: italic; }
+a { color: inherit; text-decoration: none; }
+sup { font-size: 0.7em; line-height: 0; }
+
+/* ---------- Títulos ---------- */
+h1 {
+  break-before: auto; margin-top: 11mm !important;
+  font-family: Inter; font-weight: 700; font-size: 15pt; line-height: 1.2;
+  color: var(--tinta); text-transform: uppercase; letter-spacing: 0.03em;
+  margin: 0 0 7mm; padding-bottom: 3.5mm; border-bottom: 1.2pt solid var(--tinta);
+  bookmark-level: 1;
+}
+h1 .num { color: var(--azul); margin-right: 3mm; }
+h1.quebra-pagina { break-before: page; margin-top: 0 !important; }
+h2 {
+  font-family: Inter; font-weight: 600; font-size: 11.2pt; line-height: 1.3;
+  color: var(--tinta); margin: 6.5mm 0 2.5mm; break-after: avoid; bookmark-level: 2;
+}
+h2 .num { color: var(--azul-escuro); margin-right: 2mm; }
+h3 {
+  font-family: Inter; font-weight: 600; font-size: 9.6pt; color: var(--tinta);
+  margin: 4.5mm 0 1.5mm; break-after: avoid; bookmark-level: none;
+}
+
+/* ---------- Listas ---------- */
+ul, ol { margin: 0.2em 0 0.8em; padding-left: 1.25cm; }
+li { margin: 0 0 0.3em; padding-left: 1.2mm; text-align: justify; hyphens: auto; }
+ol.alfa { list-style: lower-alpha; }
+ul.limpa { list-style: none; padding-left: 0; }
+
+/* ---------- Figuras e quadros (padrão ABNT: título acima, fonte abaixo) ---------- */
+figure { margin: 5mm 0 5mm; break-inside: avoid; }
+.legenda {
+  font-family: Inter; font-size: 8.2pt; line-height: 1.35; color: var(--tinta);
+  margin: 0 0 2.2mm; text-align: left; text-indent: 0;
+}
+.legenda b { font-weight: 700; }
+.fonte { font-family: Inter; font-size: 7.3pt; color: var(--muted); margin: 1.6mm 0 0; text-indent: 0; text-align: left; }
+figure img, figure svg { display: block; width: 100%; }
+figure img.grafico { width: 100%; }
+
+.quadro { margin: 5mm 0 5mm; }
+.quadro.inteiro { break-inside: avoid; }
+table { width: 100%; border-collapse: collapse; font-family: Inter; font-size: 7.9pt; line-height: 1.38; color: #262c38; }
+thead { display: table-header-group; }
+th {
+  text-align: left; font-weight: 600; color: var(--tinta); font-size: 7.6pt;
+  border-top: 1.1pt solid var(--tinta); border-bottom: 0.8pt solid var(--tinta);
+  padding: 1.8mm 2mm; vertical-align: bottom;
+}
+td { padding: 1.7mm 2mm; border-bottom: 0.4pt solid var(--linha); vertical-align: top; }
+tbody tr:last-child td { border-bottom: 1.1pt solid var(--tinta); }
+tr { break-inside: avoid; }
+td.num, th.num { text-align: right; font-variant-numeric: tabular-nums; white-space: nowrap; }
+td.centro, th.centro { text-align: center; }
+td.rotulo { font-weight: 600; color: var(--tinta); }
+tr.escolhido td { background: var(--azul-claro); }
+code, .mono { font-family: "IBM Plex Mono", monospace; font-size: 0.86em; }
+
+/* ---------- Destaques ---------- */
+.destaque {
+  font-family: Inter; font-size: 8.6pt; line-height: 1.5; color: var(--tinta-2);
+  background: var(--azul-claro); border-left: 2.4pt solid var(--azul);
+  padding: 3mm 4mm; margin: 4mm 0 5mm; break-inside: avoid;
+}
+.destaque p { text-indent: 0; text-align: left; margin: 0; hyphens: manual; }
+.destaque b { color: var(--tinta); font-weight: 600; }
+
+blockquote.voz {
+  margin: 3mm 0 4mm 1.25cm; padding: 0 0 0 4mm; border-left: 1pt solid var(--linha);
+  font-size: 9.4pt; font-style: italic; color: var(--tinta-2); line-height: 1.45;
+}
+blockquote.voz p { text-indent: 0; text-align: left; margin: 0 0 1.2mm; }
+blockquote.voz .ref { font-style: normal; font-family: Inter; font-size: 7.2pt; color: var(--muted); }
+
+/* ---------- Indicadores (resumo) ---------- */
+.tiles { display: table; width: calc(100% + 4.8mm); border-collapse: separate; border-spacing: 2.4mm 0; margin: 4mm -2.4mm 5mm; table-layout: fixed; }
+.tile { display: table-cell; background: var(--cinza-fundo); border-top: 2pt solid var(--azul); padding: 3mm 3.2mm 3.2mm; vertical-align: top; }
+.tile .valor { font-family: Inter; font-weight: 600; font-size: 17pt; line-height: 1.1; color: var(--tinta); letter-spacing: -0.01em; }
+.tile .valor small { font-size: 10pt; font-weight: 500; color: var(--tinta-2); }
+.tile .rotulo { font-family: Inter; font-size: 7.6pt; line-height: 1.38; color: var(--tinta-2); margin-top: 1.6mm; }
+
+/* ---------- Prompts ---------- */
+.prompt-bloco { margin: 2mm 0 4mm; }
+.prompt-rotulo { font-family: Inter; font-size: 7.4pt; font-weight: 600; letter-spacing: 0.05em; text-transform: uppercase; color: var(--azul-escuro); margin: 0 0 1.2mm; }
+pre {
+  font-family: "IBM Plex Mono", monospace; font-size: 7.25pt; line-height: 1.5; color: #1f2633;
+  background: var(--cinza-fundo); border-left: 2.4pt solid var(--azul);
+  padding: 3mm 4mm; margin: 0 0 3.5mm; white-space: pre-wrap; text-align: left;
+}
+pre.json { border-left-color: var(--tinta); background: #f3f4f6; break-inside: avoid; }
+pre .l { display: block; }
+pre .var { color: var(--azul-escuro); font-weight: 500; }
+pre .com { color: #6b7486; }
+.ficha { font-family: Inter; font-size: 8.4pt; line-height: 1.45; margin: 1mm 0 3mm; break-after: avoid; }
+.ficha p { text-indent: 0; text-align: left; margin: 0 0 1.4mm; hyphens: manual; }
+.ficha b { color: var(--tinta); }
+
+/* ---------- Mapa de agentes ---------- */
+table.mapa { border-collapse: separate; border-spacing: 2.6mm 0; margin: 0 -2.6mm; width: calc(100% + 5.2mm); table-layout: fixed; }
+table.mapa td.card { border: 0.6pt solid var(--linha); border-top: 2.6pt solid var(--azul); padding: 2.8mm 3.2mm 2.2mm; vertical-align: top; background: #fff; }
+table.mapa tbody tr:last-child td.card { border-bottom: 0.6pt solid var(--linha); }
+.card .n { font-family: Inter; font-size: 6.8pt; font-weight: 700; letter-spacing: 0.08em; color: var(--azul-escuro); }
+.card .nome { font-family: Inter; font-size: 10.2pt; font-weight: 700; color: var(--tinta); margin: 0.4mm 0 1.4mm; line-height: 1.2; }
+.card .campo { font-family: Inter; font-size: 6.4pt; font-weight: 700; letter-spacing: 0.07em; text-transform: uppercase; color: var(--muted); margin-top: 1.7mm; }
+.card .txt { font-family: Inter; font-size: 7.5pt; line-height: 1.36; color: #262c38; margin-top: 0.4mm; }
+
+/* ---------- Fluxo de exemplo ---------- */
+ol.passos { list-style: none; padding-left: 0; counter-reset: passo; margin: 3mm 0 4mm; }
+ol.passos li { counter-increment: passo; position: relative; padding-left: 9mm; margin-bottom: 2.4mm; }
+ol.passos li::before {
+  content: counter(passo); position: absolute; left: 0; top: 0.3mm;
+  width: 5.4mm; height: 5.4mm; border-radius: 50%; background: var(--tinta); color: #fff;
+  font-family: Inter; font-size: 7.4pt; font-weight: 700; text-align: center; line-height: 5.4mm;
+}
+ol.passos li b { font-family: Inter; font-size: 8.4pt; color: var(--tinta); }
+
+/* ---------- Roteiro ---------- */
+table.ondas { border-collapse: separate; border-spacing: 2.6mm 0; margin: 0 -2.6mm; width: calc(100% + 5.2mm); table-layout: fixed; }
+table.ondas td { border: none; background: var(--cinza-fundo); padding: 3.2mm 3.4mm; vertical-align: top; }
+table.ondas tbody tr:last-child td { border-bottom: none; }
+table.ondas .prazo { font-family: Inter; font-size: 6.8pt; font-weight: 700; letter-spacing: 0.08em; color: var(--azul-escuro); text-transform: uppercase; }
+table.ondas .titulo { font-family: Inter; font-size: 9.6pt; font-weight: 700; color: var(--tinta); margin: 0.6mm 0 1.8mm; }
+table.ondas .txt { font-size: 7.8pt; line-height: 1.45; }
+table.ondas .criterio { font-size: 7.4pt; color: var(--tinta-2); border-top: 0.5pt solid var(--linha); padding-top: 1.6mm; margin-top: 2mm; }
+
+/* ---------- Capa ---------- */
+.capa { page: capa; position: relative; width: 210mm; height: 297mm; background: #0d1830; color: #fff; overflow: hidden; font-family: Inter; }
+.capa .arte { position: absolute; left: 0; top: 0; width: 210mm; height: 297mm; }
+.capa .topo { position: absolute; left: 24mm; top: 24mm; right: 24mm; font-size: 8.6pt; letter-spacing: 0.16em; text-transform: uppercase; color: #b9c6dd; }
+.capa .topo b { color: #fff; font-weight: 700; }
+.capa .marca { display: block; width: 14mm; height: 1.4mm; background: var(--magenta); margin-bottom: 5mm; }
+.capa .bloco { position: absolute; left: 24mm; right: 30mm; top: 112mm; }
+.capa .fase { font-size: 9pt; letter-spacing: 0.14em; text-transform: uppercase; color: #7fb0f0; font-weight: 600; margin-bottom: 5mm; }
+.capa .titulo { font-size: 34pt; line-height: 1.04; font-weight: 700; letter-spacing: -0.015em; margin: 0 0 6mm; }
+.capa .subtitulo { font-family: "Source Serif 4"; font-size: 14pt; line-height: 1.4; color: #dbe4f3; max-width: 130mm; }
+.capa .rodape { position: absolute; left: 24mm; right: 24mm; bottom: 22mm; font-size: 8.4pt; color: #b9c6dd; line-height: 1.6; }
+.capa .rodape .rot { font-size: 7pt; letter-spacing: 0.14em; text-transform: uppercase; color: #7f8ba3; margin-bottom: 1.5mm; }
+.capa .integrantes { display: table; width: 100%; table-layout: fixed; border-top: 0.5pt solid #3a4a6b; padding-top: 4mm; }
+.capa .integrantes > div { display: table-cell; vertical-align: top; }
+.capa .integrantes .col-dir { text-align: right; }
+.capa .nat { font-family: "Source Serif 4"; font-style: italic; font-size: 9pt; color: #9fb0cc; margin-top: 5mm; max-width: 120mm; line-height: 1.5; }
+
+/* ---------- Pré-textuais ---------- */
+.pre { page: pre; }
+.pre h1 { break-before: page; margin-top: 0 !important; }
+.resumo p { font-size: 10.2pt; }
+nav.sumario { page: pre; break-before: page; }
+nav.sumario ul { list-style: none; padding: 0; margin: 0; font-family: Inter; font-size: 9.2pt; line-height: 1.42; }
+nav.sumario li { margin: 0; text-align: left; }
+nav.sumario li.n1 { font-weight: 600; color: var(--tinta); margin-top: 2.6mm; }
+nav.sumario li.n2 { padding-left: 8mm; color: var(--tinta-2); font-size: 8.8pt; margin-top: 0.5mm; }
+nav.sumario li a::after { content: leader(dotted) " " target-counter(attr(href), page); color: var(--muted); font-weight: 400; }
+nav.sumario li .n { display: inline-block; width: 8mm; color: var(--azul-escuro); }
+nav.sumario li.n2 .n { width: 10mm; color: var(--muted); }
+
+.referencias p { text-indent: 0; text-align: left; margin: 0 0 3.2mm; font-size: 9.6pt; line-height: 1.4; hyphens: manual; }
+.placeholder { background: #fff2c7; padding: 0 1mm; font-family: Inter; font-size: 0.9em; }
+.mantem { break-inside: avoid; }
+.quebra { break-before: page; }
+
+.compacta td { padding-top: 1.1mm; padding-bottom: 1.1mm; }
+.compacta table, table.compacta { font-size: 7.7pt; }
+.compacta { margin-top: 3.5mm !important; }

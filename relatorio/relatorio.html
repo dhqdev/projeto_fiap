@@ -1,0 +1,693 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<title>Olist Intelligent Marketplace – Relatório Executivo da Fase 1</title>
+<meta name="author" content="Grupo do Tech Challenge – FIAP Pós Tech">
+<meta name="description" content="Oportunidades de IA Generativa e Agentes de IA para a operação da Olist">
+<meta name="keywords" content="Olist, agentes de IA, IA generativa, Tech Challenge, FIAP">
+<link rel="stylesheet" href="estilo.css">
+</head>
+<body>
+
+<!-- ======================================================= CAPA -->
+<section class="capa">
+  <!--ARTE_CAPA-->
+  <div class="topo"><span class="marca"></span><b>FIAP</b> &nbsp;·&nbsp; Pós Tech &nbsp;·&nbsp; Agentes de IA</div>
+  <div class="bloco">
+    <div class="fase">Tech Challenge &nbsp;·&nbsp; Fase 1 &nbsp;·&nbsp; Relatório executivo</div>
+    <div class="titulo">Olist Intelligent<br>Marketplace</div>
+    <div class="subtitulo">Oportunidades de IA Generativa e Agentes de IA para a operação e os indicadores de negócio da Olist</div>
+  </div>
+  <div class="rodape">
+    <div class="integrantes">
+      <div>
+        <div class="rot">Integrantes</div>
+        Nome completo do integrante &nbsp;·&nbsp; RM 000000<br>
+        Nome completo do integrante &nbsp;·&nbsp; RM 000000<br>
+        Nome completo do integrante &nbsp;·&nbsp; RM 000000<br>
+        Nome completo do integrante &nbsp;·&nbsp; RM 000000<br>
+        Nome completo do integrante &nbsp;·&nbsp; RM 000000
+      </div>
+      <div class="col-dir">
+        <div class="rot">Local e data</div>
+        São Paulo<br>Outubro de 2026
+      </div>
+    </div>
+    <div class="nat">Relatório apresentado como entrega da Fase 1 (Fundamentos de IA e Agentic AI) do Tech Challenge da Pós Tech da FIAP.</div>
+  </div>
+</section>
+
+<!-- ======================================================= RESUMO EXECUTIVO -->
+<section class="pre resumo">
+<h1 id="resumo">Resumo executivo</h1>
+
+<p class="sem-recuo">A Olist conecta pequenos e médios lojistas aos grandes marketplaces do país e, para o consumidor, é ela quem vende. A experiência de compra, porém, depende de milhares de vendedores e de várias transportadoras que a empresa não controla diretamente. Este relatório responde à pergunta proposta para a Fase 1 do Tech Challenge: <em>como a Olist poderia utilizar IA Generativa e Agentes de IA para melhorar sua operação e seus indicadores de negócio?</em></p>
+
+<p>Para responder, analisamos os 99.441 pedidos do conjunto de dados público da empresa, feitos entre setembro de 2016 e outubro de 2018. Quatro números resumem o diagnóstico:</p>
+
+<div class="tiles">
+  <div class="tile"><div class="valor">6,8%</div><div class="rotulo">das entregas chegaram depois da data prometida. Em março de 2018, foram 19%.</div></div>
+  <div class="tile"><div class="valor">2,3 <small>vs</small> 4,3</div><div class="rotulo">nota média dos pedidos atrasados contra a dos pedidos entregues no prazo.</div></div>
+  <div class="tile"><div class="valor">43%</div><div class="rotulo">das avaliações de 1 e 2 estrelas vêm de pedidos atrasados ou que não foram entregues.</div></div>
+  <div class="tile"><div class="valor">3,1%</div><div class="rotulo">dos clientes voltaram a comprar no período analisado.</div></div>
+</div>
+
+<p class="sem-recuo">A insatisfação se concentra no pós-venda. Prazo descumprido, entrega incompleta e falta de retorno do atendimento aparecem com mais frequência nas reclamações do que defeitos de produto. São falhas de coordenação e de comunicação entre muitos participantes, um tipo de problema em que agentes de IA podem ajudar: acompanham cada pedido individualmente, leem todos os comentários e respondem a qualquer hora.</p>
+
+<p>Propomos três agentes que trabalham de forma coordenada. O <strong>Analista de Reviews</strong> lê e classifica cada avaliação assim que ela chega e aponta causas recorrentes por vendedor, categoria e rota. O <strong>Guardião Logístico</strong> acompanha os pedidos em trânsito, estima o risco de atraso e avisa o cliente antes que o prazo vença. O <strong>SAC Agêntico</strong> resolve no chat as solicitações mais comuns, como status, troca e devolução, dentro da política da empresa, e encaminha as exceções para um atendente.</p>
+
+<p>O efeito esperado é reduzir as avaliações negativas ligadas à entrega, diminuir os contatos repetitivos no atendimento e dar à Olist informação para agir sobre vendedores e transportadoras com desempenho ruim. As metas do capítulo 9 são tratadas como hipóteses a validar em piloto. Recomendamos começar pelo Analista de Reviews, em um piloto de 30 dias sobre a base histórica: é o agente de menor risco, porque não fala diretamente com clientes, e o que gera a informação de que os outros dois dependem.</p>
+</section>
+
+<!-- ======================================================= SUMÁRIO -->
+<nav class="sumario">
+<h1 class="quebra-pagina">Sumário</h1>
+<ul>
+  <li class="n1"><a href="#s1"><span class="n">1</span>Introdução</a></li>
+  <li class="n2"><a href="#s1-1"><span class="n">1.1</span>Contexto da Olist</a></li>
+  <li class="n2"><a href="#s1-2"><span class="n">1.2</span>Desafio e pergunta norteadora</a></li>
+  <li class="n2"><a href="#s1-3"><span class="n">1.3</span>Objetivos</a></li>
+  <li class="n2"><a href="#s1-4"><span class="n">1.4</span>Método</a></li>
+  <li class="n1"><a href="#s2"><span class="n">2</span>Fundamentos: da IA generativa aos agentes</a></li>
+  <li class="n2"><a href="#s2-1"><span class="n">2.1</span>Aprendizado de máquina e IA generativa</a></li>
+  <li class="n2"><a href="#s2-2"><span class="n">2.2</span>O que caracteriza um agente de IA</a></li>
+  <li class="n2"><a href="#s2-3"><span class="n">2.3</span>Padrões adotados nesta proposta</a></li>
+  <li class="n1"><a href="#s3"><span class="n">3</span>Diagnóstico a partir dos dados</a></li>
+  <li class="n2"><a href="#s3-1"><span class="n">3.1</span>A base analisada</a></li>
+  <li class="n2"><a href="#s3-2"><span class="n">3.2</span>Crescimento e sazonalidade</a></li>
+  <li class="n2"><a href="#s3-3"><span class="n">3.3</span>Prazo prometido e prazo real</a></li>
+  <li class="n2"><a href="#s3-4"><span class="n">3.4</span>O que dizem as avaliações</a></li>
+  <li class="n2"><a href="#s3-5"><span class="n">3.5</span>Pedidos com mais de um item ou vendedor</a></li>
+  <li class="n2"><a href="#s3-6"><span class="n">3.6</span>Recompra</a></li>
+  <li class="n2"><a href="#s3-7"><span class="n">3.7</span>Vendedores e catálogo</a></li>
+  <li class="n2"><a href="#s3-8"><span class="n">3.8</span>Síntese do diagnóstico</a></li>
+  <li class="n1"><a href="#s4"><span class="n">4</span>Oportunidades e priorização</a></li>
+  <li class="n1"><a href="#s5"><span class="n">5</span>Mapa de agentes de IA</a></li>
+  <li class="n1"><a href="#s6"><span class="n">6</span>Arquitetura conceitual inicial</a></li>
+  <li class="n2"><a href="#s6-1"><span class="n">6.1</span>Exemplo de funcionamento</a></li>
+  <li class="n1"><a href="#s7"><span class="n">7</span>Estruturação de prompts</a></li>
+  <li class="n2"><a href="#s7-1"><span class="n">7.1</span>Agente 01 – Analista de Reviews</a></li>
+  <li class="n2"><a href="#s7-2"><span class="n">7.2</span>Agente 02 – Guardião Logístico</a></li>
+  <li class="n2"><a href="#s7-3"><span class="n">7.3</span>Agente 03 – SAC Agêntico</a></li>
+  <li class="n1"><a href="#s8"><span class="n">8</span>Governança, riscos e limitações</a></li>
+  <li class="n2"><a href="#s8-1"><span class="n">8.1</span>Princípios de uso responsável</a></li>
+  <li class="n2"><a href="#s8-2"><span class="n">8.2</span>Matriz de riscos</a></li>
+  <li class="n2"><a href="#s8-3"><span class="n">8.3</span>Limitações deste estudo</a></li>
+  <li class="n1"><a href="#s9"><span class="n">9</span>Impacto esperado e próximos passos</a></li>
+  <li class="n2"><a href="#s9-1"><span class="n">9.1</span>Roteiro de implantação</a></li>
+  <li class="n2"><a href="#s9-2"><span class="n">9.2</span>Indicadores e metas</a></li>
+  <li class="n2"><a href="#s9-3"><span class="n">9.3</span>Evolução nas próximas fases do curso</a></li>
+  <li class="n1"><a href="#s10"><span class="n">10</span>Vídeo executivo</a></li>
+  <li class="n1"><a href="#s11"><span class="n">11</span>Considerações finais</a></li>
+  <li class="n1"><a href="#ref"><span class="n"></span>Referências</a></li>
+</ul>
+</nav>
+
+<!-- ======================================================= 1 INTRODUÇÃO -->
+<h1 id="s1" class="quebra-pagina"><span class="num">1</span>Introdução</h1>
+
+<h2 id="s1-1"><span class="num">1.1</span>Contexto da Olist</h2>
+<p>A Olist funciona como uma loja de departamentos dentro dos grandes marketplaces brasileiros. O lojista assina um único contrato, cadastra seus produtos uma vez e passa a vendê-los nesses canais por meio da loja da Olist. Quando a venda acontece, o vendedor é notificado, separa o pedido e o envia com o apoio dos parceiros logísticos da Olist. Depois da entrega, ou quando a data prevista chega, o cliente recebe por e-mail uma pesquisa de satisfação, na qual dá uma nota de 1 a 5 e pode deixar um comentário (OLIST, 2018).</p>
+<p>O modelo dá escala a quem sozinho não teria acesso aos grandes canais, mas cria uma dependência. Para o consumidor, quem vendeu foi a Olist. Um atraso da transportadora ou um item esquecido por um dos mais de três mil vendedores vira uma avaliação negativa para a loja, e a reputação da loja nos marketplaces afeta a visibilidade e a conversão de todos os lojistas que vendem por ela.</p>
+
+<h2 id="s1-2"><span class="num">1.2</span>Desafio e pergunta norteadora</h2>
+<p>Neste trabalho, o grupo atua como uma consultoria contratada para iniciar a jornada de IA da Olist. A pergunta que orienta a Fase 1 é:</p>
+<div class="destaque"><p><b>“Como a Olist poderia utilizar IA Generativa e Agentes de IA para melhorar sua operação e seus indicadores de negócio?”</b></p></div>
+<p>Nesta etapa o foco é entender o negócio, identificar oportunidades e desenhar uma visão inicial. Não faz parte do escopo desenvolver software; os agentes são descritos no nível de objetivo, dados, responsabilidades e limites, para que possam ser prototipados nas fases seguintes do curso.</p>
+
+<h2 id="s1-3"><span class="num">1.3</span>Objetivos</h2>
+<p>O objetivo geral é propor um conjunto inicial de agentes de IA para a Olist, fundamentado em evidências do conjunto de dados e ligado a indicadores de negócio. Os objetivos específicos são:</p>
+<ol class="alfa">
+  <li>diagnosticar os principais problemas da operação a partir do dataset público da empresa;</li>
+  <li>listar e priorizar oportunidades de uso de IA Generativa e de agentes;</li>
+  <li>desenhar o mapa de agentes e a arquitetura conceitual da solução;</li>
+  <li>estruturar os prompts iniciais de cada agente;</li>
+  <li>apontar riscos, indicadores de acompanhamento e próximos passos.</li>
+</ol>
+
+<h2 id="s1-4"><span class="num">1.4</span>Método</h2>
+<p>O trabalho seguiu quatro etapas. Primeiro, exploramos as oito tabelas do dataset com Python e a biblioteca pandas para medir prazos, notas, recompra e desempenho por região, categoria e vendedor. Em seguida, agrupamos por tema os 10.831 comentários de avaliações com nota 1 ou 2, usando regras de palavras-chave definidas a partir dos termos mais frequentes nesses textos. Com o diagnóstico em mãos, listamos as oportunidades e as ordenamos por impacto, viabilidade e risco. Por fim, desenhamos os agentes, a arquitetura e os prompts para as três oportunidades mais bem avaliadas.</p>
+<p>Duas definições são usadas ao longo do texto. Consideramos <strong>atrasado</strong> o pedido entregue em data posterior à data estimada informada ao cliente na compra, e <strong>avaliação negativa</strong> a de nota 1 ou 2. O código que gera todos os números e gráficos acompanha este relatório (<span class="mono">analise/analise_olist.py</span>), o que permite reproduzir a análise.</p>
+
+<!-- ======================================================= 2 FUNDAMENTOS -->
+<h1 id="s2"><span class="num">2</span>Fundamentos: da IA generativa aos agentes</h1>
+
+<h2 id="s2-1"><span class="num">2.1</span>Aprendizado de máquina e IA generativa</h2>
+<p>Russell e Norvig (2022) definem a inteligência artificial como o estudo de agentes que percebem o ambiente e agem para atingir objetivos. Boa parte das aplicações atuais vem do aprendizado de máquina, em que o sistema aprende padrões a partir de exemplos em vez de seguir regras escritas uma a uma. O Quadro 1 resume as três formas clássicas de aprendizado e onde cada uma poderia ser usada na Olist.</p>
+
+<div class="quadro inteiro">
+<p class="legenda"><b>Quadro 1</b> – Paradigmas de aprendizado de máquina e exemplos no contexto da Olist</p>
+<table>
+<thead><tr><th style="width:22%">Paradigma</th><th style="width:33%">Como o modelo aprende</th><th>Exemplo de aplicação na Olist</th></tr></thead>
+<tbody>
+<tr><td class="rotulo">Supervisionado</td><td>a partir de exemplos já rotulados com a resposta correta</td><td>prever se um pedido vai atrasar, treinando com pedidos passados cuja data de entrega já é conhecida</td></tr>
+<tr><td class="rotulo">Não supervisionado</td><td>encontrando grupos e padrões em dados sem rótulo</td><td>agrupar vendedores por perfil de desempenho; detectar comportamentos fora do padrão em pedidos</td></tr>
+<tr><td class="rotulo">Por reforço</td><td>por tentativa e erro, guiado por recompensas</td><td>ajustar regras de roteamento e de frete conforme o resultado observado nas entregas</td></tr>
+</tbody></table>
+<p class="fonte">Fonte: elaborado pelos autores (2026), com base em Russell e Norvig (2022).</p>
+</div>
+
+<p>A IA generativa é um caso particular. Os grandes modelos de linguagem (LLMs) são treinados com volumes enormes de texto e produzem conteúdo novo a partir de uma instrução em linguagem natural, o <em>prompt</em>. Para a Olist, isso significa ler e escrever em português em escala: entender o que um cliente quis dizer em um comentário, redigir uma resposta, resumir milhares de avaliações em poucos parágrafos.</p>
+
+<h2 id="s2-2"><span class="num">2.2</span>O que caracteriza um agente de IA</h2>
+<p>Um assistente generativo responde quando alguém pergunta. Um agente recebe um objetivo e decide os passos para alcançá-lo: consulta dados, usa ferramentas, avalia o resultado e repete o ciclo até concluir a tarefa ou pedir ajuda (WENG, 2023). Quatro componentes aparecem em praticamente todas as descrições de agentes, e o Quadro 2 os ilustra com um dos agentes propostos neste relatório.</p>
+
+<div class="quadro inteiro">
+<p class="legenda"><b>Quadro 2</b> – Componentes de um agente de IA, ilustrados pelo Guardião Logístico</p>
+<table>
+<thead><tr><th style="width:24%">Componente</th><th style="width:34%">Função</th><th>No Guardião Logístico</th></tr></thead>
+<tbody>
+<tr><td class="rotulo">Percepção</td><td>receber informações do ambiente</td><td>eventos de rastreio e mudanças no status do pedido</td></tr>
+<tr><td class="rotulo">Raciocínio e planejamento</td><td>interpretar a situação e decidir o próximo passo</td><td>comparar a posição do pacote com o prazo prometido e estimar o risco</td></tr>
+<tr><td class="rotulo">Ferramentas (ação)</td><td>agir sobre sistemas externos</td><td>enviar mensagem ao cliente; abrir chamado com a transportadora</td></tr>
+<tr><td class="rotulo">Memória</td><td>guardar o que já aconteceu</td><td>registrar que o cliente já foi avisado, para não repetir a mensagem</td></tr>
+</tbody></table>
+<p class="fonte">Fonte: elaborado pelos autores (2026), com base em Weng (2023) e Russell e Norvig (2022).</p>
+</div>
+
+<p>A diferença prática entre os dois tipos de sistema aparece no Quadro 3.</p>
+
+<div class="quadro inteiro">
+<p class="legenda"><b>Quadro 3</b> – Diferenças entre um assistente generativo e um agente de IA</p>
+<table>
+<thead><tr><th style="width:22%">Aspecto</th><th style="width:39%">Assistente generativo</th><th>Agente de IA</th></tr></thead>
+<tbody>
+<tr><td class="rotulo">Início da ação</td><td>responde a uma pergunta do usuário</td><td>parte de um objetivo ou de um evento, como a mudança no status de um pedido</td></tr>
+<tr><td class="rotulo">Memória</td><td>limitada à conversa em andamento</td><td>histórico persistente do cliente e do pedido</td></tr>
+<tr><td class="rotulo">Ferramentas</td><td>em geral, nenhuma</td><td>consulta sistemas e executa ações dentro de permissões definidas</td></tr>
+<tr><td class="rotulo">Tratamento de erros</td><td>entrega a resposta, certa ou errada</td><td>observa o resultado da ação e pode corrigir o rumo</td></tr>
+</tbody></table>
+<p class="fonte">Fonte: elaborado pelos autores (2026).</p>
+</div>
+
+<p>Nem todo problema pede um agente. Processos previsíveis, com passos sempre iguais, costumam ser resolvidos com automações simples, que são mais baratas e mais fáceis de auditar. A autonomia de um agente se justifica quando a tarefa exige interpretar situações que mudam de caso para caso (ANTHROPIC, 2024). Usamos esse critério na priorização do capítulo 4.</p>
+
+<h2 id="s2-3"><span class="num">2.3</span>Padrões adotados nesta proposta</h2>
+<p><strong>Raciocinar e agir (ReAct).</strong> O modelo alterna pensamento, ação e observação: decide consultar o rastreio, lê o resultado e só então redige a mensagem ao cliente. Como cada passo se apoia em dados efetivamente consultados, o padrão reduz respostas inventadas e deixa o raciocínio registrado para auditoria (YAO <em>et al.</em>, 2023).</p>
+<p><strong>Geração aumentada por recuperação (RAG).</strong> Antes de responder, o agente busca trechos relevantes em uma base de documentos, como a política de trocas ou as regras do Código de Defesa do Consumidor, e responde com base neles (LEWIS <em>et al.</em>, 2020). Assim, a regra de devolução aplicada vem do documento oficial, e não do que o modelo “lembra”.</p>
+<p><strong>Memória.</strong> Seguindo a ideia de Park <em>et al.</em> (2023), tratamos a memória como um registro de eventos de cada cliente e pedido, recuperado conforme a recência, a importância e a relevância para a situação atual.</p>
+<p><strong>Sistemas multiagentes.</strong> Em vez de um único agente que faz tudo, vários agentes especializados, cada um com escopo, ferramentas e permissões próprias, trocam informações por meio de um orquestrador e de uma memória comum (WOOLDRIDGE, 2009). Escopos menores tornam cada agente mais fácil de testar e de controlar.</p>
+<p><strong>Pessoa no circuito (<em>human-in-the-loop</em>).</strong> Decisões com impacto financeiro ou de reputação passam pela aprovação de uma pessoa. A autonomia é ampliada aos poucos, à medida que o agente demonstra bom desempenho.</p>
+
+<!-- ======================================================= 3 DIAGNÓSTICO -->
+<h1 id="s3"><span class="num">3</span>Diagnóstico a partir dos dados</h1>
+
+<h2 id="s3-1"><span class="num">3.1</span>A base analisada</h2>
+<p>O <em>Brazilian E-Commerce Public Dataset by Olist</em> reúne 99.441 pedidos feitos entre setembro de 2016 e outubro de 2018, com dados anonimizados de 96.096 clientes, 3.095 vendedores e 32.951 produtos de 73 categorias (OLIST, 2018). Os pedidos somam R$ 16,0 milhões em pagamentos, com valor médio de R$ 160,99 e mediano de R$ 105,29. O cartão de crédito responde por 74% dos pagamentos e o boleto, por 19%. O Quadro 4 descreve as tabelas e o uso que fizemos de cada uma.</p>
+
+<div class="quadro inteiro">
+<p class="legenda"><b>Quadro 4</b> – Tabelas do dataset e uso na análise</p>
+<table>
+<thead><tr><th style="width:17%">Tabela</th><th style="width:45%">Conteúdo</th><th>Uso nesta análise</th></tr></thead>
+<tbody>
+<tr><td class="mono">orders</td><td>99.441 pedidos, com status e datas de compra, postagem, entrega e prazo estimado</td><td>prazos, atrasos e sazonalidade</td></tr>
+<tr><td class="mono">order_items</td><td>112.650 itens, com preço, frete, vendedor e prazo-limite de postagem</td><td>frete, pedidos com vários itens ou vendedores, postagem fora do prazo</td></tr>
+<tr><td class="mono">order_payments</td><td>forma de pagamento, número de parcelas e valor</td><td>valor dos pedidos e meios de pagamento</td></tr>
+<tr><td class="mono">order_reviews</td><td>99.224 avaliações, com nota, título e comentário</td><td>satisfação e temas de reclamação</td></tr>
+<tr><td class="mono">customers</td><td>cliente e localização (CEP, cidade e UF)</td><td>análise regional e recompra</td></tr>
+<tr><td class="mono">sellers</td><td>3.095 vendedores e sua localização</td><td>concentração e desempenho dos vendedores</td></tr>
+<tr><td class="mono">products</td><td>categoria, peso, dimensões e número de fotos</td><td>categorias com mais avaliações negativas</td></tr>
+<tr><td class="mono">geolocation</td><td>coordenadas aproximadas por prefixo de CEP</td><td>reservada para análise de rotas nas próximas fases</td></tr>
+</tbody></table>
+<p class="fonte">Fonte: elaborado pelos autores (2026), com base em Olist (2018).</p>
+</div>
+
+<h2 id="s3-2"><span class="num">3.2</span>Crescimento e sazonalidade</h2>
+<p>O volume mensal passou de cerca de 800 pedidos em janeiro de 2017 para algo entre 6 e 7 mil por mês ao longo de 2018 (Figura 1). O pico isolado foi novembro de 2017, mês da Black Friday, com 7.544 pedidos. A taxa de atraso acompanhou os momentos de pressão: subiu para 12,4% em novembro de 2017 e chegou a 19,0% em março de 2018, quase o triplo da média do período, de 6,8%.</p>
+
+<figure>
+<p class="legenda"><b>Figura 1</b> – Pedidos por mês e percentual de entregas com atraso (jan. 2017 a ago. 2018)</p>
+<img class="grafico" src="figuras/fig_volume_atraso.svg" alt="Pedidos por mês e taxa de atraso">
+<p class="fonte">Fonte: elaborado pelos autores (2026), com base em Olist (2018). Foram excluídos 2016 e os meses de setembro e outubro de 2018, com poucos pedidos na base.</p>
+</figure>
+
+<p>O dataset não traz informação que explique sozinha o pico de fevereiro e março de 2018. O padrão, porém, sugere que a operação perde previsibilidade quando o volume sobe, justamente quando mais clientes são afetados. Um monitoramento que dependa de pessoas olhando pedido por pedido tende a falhar nesses momentos.</p>
+
+<h2 id="s3-3"><span class="num">3.3</span>Prazo prometido e prazo real</h2>
+<p>Na mediana, um pedido levou 10,2 dias para chegar, enquanto o prazo informado na compra foi de 23,2 dias. Quase três em cada quatro pedidos chegaram com uma semana ou mais de antecedência. A promessa de entrega é, portanto, conservadora. Mesmo assim, cerca de 6,5 mil entregas (6,8%) a ultrapassaram, com atraso mediano de 7,5 dias.</p>
+<p>O problema é desigual no território (Figura 2). Em Alagoas, 21% das entregas atrasaram; no Maranhão, 17%; em Sergipe, 15%. O Rio de Janeiro merece atenção à parte: com 12% de atraso e mais de 12 mil pedidos entregues, é o segundo estado em número absoluto de pedidos atrasados, atrás apenas de São Paulo, cuja taxa de atraso é de 4,5%.</p>
+
+<figure>
+<p class="legenda"><b>Figura 2</b> – Percentual de entregas com atraso por UF do cliente</p>
+<img class="grafico" src="figuras/fig_atraso_uf.svg" alt="Taxa de atraso por UF">
+<p class="fonte">Fonte: elaborado pelos autores (2026), com base em Olist (2018). Considera 96.470 pedidos entregues.</p>
+</figure>
+
+<p>Parte do atraso começa antes do transporte. Em 9,0% dos pedidos entregues, o vendedor postou a mercadoria depois do prazo-limite. Nesses casos, a chance de a entrega atrasar sobe de 5,4% para 20,8%, quase quatro vezes mais. Ainda assim, a postagem tardia aparece em apenas 28% dos pedidos atrasados. O restante do atraso se concentra no trecho da transportadora, que nos pedidos atrasados levou, em mediana, 26 dias, contra 7 dias no conjunto dos pedidos.</p>
+
+<div class="destaque"><p><b>O que isso significa para um agente.</b> A postagem fora do prazo e a falta de movimentação no rastreio são sinais disponíveis dias antes de o prazo vencer. Um agente pode acompanhar esses sinais pedido a pedido e agir enquanto ainda há tempo de avisar o cliente ou cobrar o vendedor e a transportadora.</p></div>
+
+<h2 id="s3-4"><span class="num">3.4</span>O que dizem as avaliações</h2>
+<p>Das 99.224 avaliações, 14,7% têm nota 1 ou 2 e 57,8% têm nota 5. A nota cai drasticamente quando a entrega falha (Figura 3). Pedidos entregues no prazo têm nota média 4,29; com atraso, 2,27; os que não chegaram a ser entregues, 1,74. Entre os pedidos atrasados, 62% receberam 1 ou 2 estrelas, contra 9% dos entregues no prazo.</p>
+
+<figure>
+<p class="legenda"><b>Figura 3</b> – Distribuição das notas segundo a situação da entrega</p>
+<img class="grafico" src="figuras/fig_notas_situacao.svg" alt="Distribuição das notas por situação da entrega">
+<p class="fonte">Fonte: elaborado pelos autores (2026), com base em Olist (2018). “Não entregue” inclui pedidos cancelados, indisponíveis e ainda em trânsito no fim da base.</p>
+</figure>
+
+<p>Visto pelo outro lado, 43% das avaliações negativas vêm de pedidos atrasados (27%) ou não entregues (15%). Os outros 57% vêm de pedidos que chegaram no prazo, o que aponta para problemas de produto, de separação do pedido ou de atendimento. Três quartos das avaliações negativas trazem comentário escrito, e são esses textos que mostram o que deu errado:</p>
+
+<blockquote class="voz">
+<p>“Comprei duas mochilas, recebi apenas uma, o natal está chegando e até agora nada!”</p>
+<p>“Estou esperando há mais de vinte dias e ainda não recebi meu produto e não consigo nenhuma informação.”</p>
+<p>“pedi duas unidades do mesmo produto e só veio uma unidade e ninguém me da um retorno”</p>
+<p class="ref">Comentários de avaliações com nota 1 ou 2, reproduzidos sem correção (OLIST, 2018).</p>
+</blockquote>
+
+<p>Classificamos os 10.831 comentários negativos por tema (Figura 4). Como um mesmo comentário pode citar mais de um problema, os percentuais somam mais de 100%. Quase metade fala de entrega, seja atraso ou não recebimento. Em seguida aparecem produto errado, diferente ou incompleto (16%), falta de retorno do atendimento (15%), pedidos de reembolso, troca ou cancelamento (14%) e defeito ou avaria (10%).</p>
+
+<figure>
+<p class="legenda"><b>Figura 4</b> – Temas citados nos comentários de avaliações com nota 1 ou 2</p>
+<img class="grafico" src="figuras/fig_temas_reclamacoes.svg" alt="Temas das reclamações">
+<p class="fonte">Fonte: elaborado pelos autores (2026), com base em Olist (2018). Classificação por palavras-chave; um comentário pode ter mais de um tema.</p>
+</figure>
+
+<p>A classificação por palavras-chave é aproximada e serve para dimensionar o problema, não para uso operacional. Ainda assim, deixa claro que os comentários explicam boa parte da insatisfação e que valeria a pena lê-los de forma sistemática, o que é inviável manualmente no volume da Olist.</p>
+
+<h2 id="s3-5"><span class="num">3.5</span>Pedidos com mais de um item ou vendedor</h2>
+<p>Cerca de 10% dos pedidos têm mais de um item. Neles, a proporção de avaliações negativas é de 27,6%, mais que o dobro da observada em pedidos de item único (12,7%). Quando o pedido envolve mais de um vendedor, situação de 1,3% dos pedidos, a proporção chega a 47%. Os itens saem de lugares diferentes e chegam em datas diferentes, e o cliente, que não foi avisado disso, entende que recebeu o pedido incompleto. É sobretudo uma falha de comunicação, que um aviso proativo poderia evitar.</p>
+
+<h2 id="s3-6"><span class="num">3.6</span>Recompra</h2>
+<p>Apenas 3,1% dos 96.096 clientes fizeram mais de um pedido no período. Considerando só quem comprou pela primeira vez até fevereiro de 2018, e portanto teve ao menos seis meses para voltar, a taxa sobe para 4,1%. Parte desse resultado é estrutural, porque o cliente compra dentro do marketplace e pode nem perceber que a loja é a Olist. Mesmo assim, a experiência de entrega pesa: entre esses clientes, os que tiveram o primeiro pedido atrasado recompraram 3,1%, contra 4,1% dos que receberam no prazo, uma recompra cerca de 24% menor. Trata-se de uma correlação, pois a análise não isola outros fatores, mas ela reforça a ligação entre entrega e retenção.</p>
+
+<h2 id="s3-7"><span class="num">3.7</span>Vendedores e catálogo</h2>
+<p>A base de vendedores é concentrada. Seis em cada dez estão em São Paulo, e os 10% de maior faturamento respondem por 67% da receita de produtos. Isso facilita a ação, porque acompanhar algumas centenas de vendedores cobre a maior parte do volume. Entre as categorias com pelo menos 500 pedidos, móveis de escritório tem a maior proporção de avaliações negativas (22,6%), seguida de cama, mesa e banho (16,8%), que é também a categoria mais vendida, e de móveis e decoração (16,7%). São produtos volumosos ou que dependem de medidas e cores corretas, o que sugere investigar a embalagem e a descrição dos anúncios. Há ainda 1,9% de produtos sem categoria cadastrada, um sinal de qualidade de catálogo a acompanhar.</p>
+
+<h2 id="s3-8"><span class="num">3.8</span>Síntese do diagnóstico</h2>
+<p>O Quadro 5 reúne os problemas identificados, a evidência que os sustenta e a oportunidade de IA associada a cada um.</p>
+
+<div class="quadro">
+<p class="legenda"><b>Quadro 5</b> – Problemas identificados, evidências e oportunidades de IA</p>
+<table>
+<thead><tr><th style="width:21%">Problema</th><th style="width:30%">Evidência no dataset</th><th style="width:23%">Efeito no negócio</th><th>Oportunidade de IA</th></tr></thead>
+<tbody>
+<tr><td class="rotulo">Atrasos concentrados em regiões e picos</td><td>6,8% de atraso; 21% em AL; 19% em mar./2018; postagem tardia quase quadruplica o risco</td><td>avaliações negativas, contatos no atendimento e cancelamentos</td><td>monitorar cada pedido e agir antes de o prazo vencer</td></tr>
+<tr><td class="rotulo">Insatisfação registrada em texto e pouco aproveitada</td><td>14,7% de notas 1 e 2; 10.831 comentários negativos</td><td>perda de reputação; problemas de vendedor percebidos tarde</td><td>classificar avaliações e apontar causas por vendedor, categoria e rota</td></tr>
+<tr><td class="rotulo">Pós-venda com falhas de comunicação</td><td>15% dos comentários negativos citam falta de retorno; 47% de notas baixas em pedidos com mais de um vendedor</td><td>retrabalho no atendimento e escalada da insatisfação</td><td>atendimento automatizado com acesso ao histórico do pedido</td></tr>
+<tr><td class="rotulo">Baixa recompra</td><td>3,1% dos clientes compram de novo; recompra 24% menor após atraso</td><td>custo de aquisição alto por venda</td><td>relacionamento personalizado no pós-venda</td></tr>
+<tr><td class="rotulo">Qualidade do catálogo em algumas categorias</td><td>22,6% de notas baixas em móveis de escritório; 1,9% de produtos sem categoria</td><td>devoluções e avaliações negativas</td><td>revisão assistida de anúncios</td></tr>
+</tbody></table>
+<p class="fonte">Fonte: elaborado pelos autores (2026), com base em Olist (2018).</p>
+</div>
+
+<!-- ======================================================= 4 PRIORIZAÇÃO -->
+<h1 id="s4"><span class="num">4</span>Oportunidades e priorização</h1>
+<p>Do diagnóstico saíram seis oportunidades. Avaliamos cada uma em três critérios, com notas de 1 a 5: o <strong>impacto</strong> esperado nos indicadores do negócio; a <strong>viabilidade</strong> com os dados e sistemas que a Olist já possui; e o <strong>risco</strong> de uma decisão errada do agente, em que nota alta significa risco baixo. A soma das notas orienta a ordem de implantação (Tabela 1).</p>
+
+<div class="quadro inteiro">
+<p class="legenda"><b>Tabela 1</b> – Priorização das oportunidades de IA</p>
+<table>
+<thead><tr><th>Oportunidade</th><th class="centro" style="width:11%">Impacto</th><th class="centro" style="width:12%">Viabilidade</th><th class="centro" style="width:14%">Risco<br>(5 = baixo)</th><th class="centro" style="width:9%">Total</th><th style="width:16%">Decisão</th></tr></thead>
+<tbody>
+<tr class="escolhido"><td class="rotulo">Análise automática de avaliações</td><td class="centro">4</td><td class="centro">5</td><td class="centro">5</td><td class="centro"><b>14</b></td><td>priorizada</td></tr>
+<tr class="escolhido"><td class="rotulo">Monitoramento proativo de entregas</td><td class="centro">5</td><td class="centro">4</td><td class="centro">4</td><td class="centro"><b>13</b></td><td>priorizada</td></tr>
+<tr class="escolhido"><td class="rotulo">Atendimento, trocas e devoluções no chat</td><td class="centro">5</td><td class="centro">3</td><td class="centro">3</td><td class="centro"><b>11</b></td><td>priorizada</td></tr>
+<tr><td class="rotulo">Relacionamento e estímulo à recompra</td><td class="centro">4</td><td class="centro">3</td><td class="centro">4</td><td class="centro"><b>11</b></td><td>fases seguintes</td></tr>
+<tr><td class="rotulo">Revisão assistida de anúncios</td><td class="centro">3</td><td class="centro">4</td><td class="centro">4</td><td class="centro"><b>11</b></td><td>fases seguintes</td></tr>
+<tr><td class="rotulo">Previsão de demanda para vendedores</td><td class="centro">3</td><td class="centro">2</td><td class="centro">4</td><td class="centro"><b>9</b></td><td>fases seguintes</td></tr>
+</tbody></table>
+<p class="fonte">Fonte: elaborado pelos autores (2026).</p>
+</div>
+
+<p>Três oportunidades empataram com 11 pontos. Escolhemos o atendimento por dois motivos: tem o maior impacto, já que falta de retorno e dificuldades com troca e reembolso estão entre as reclamações mais citadas, e completa os outros dois agentes, usando a informação que eles produzem. O relacionamento para recompra fica para a Fase 2 porque depende de um pós-venda estável. Estimular a segunda compra de quem teve uma primeira experiência ruim tende a dar pouco resultado.</p>
+<p>Os três agentes escolhidos cobrem as etapas em que a experiência do cliente mais se deteriora, ou seja, entrega, avaliação e atendimento, e se reforçam mutuamente: o que um aprende serve de entrada para o outro. A sequência de implantação segue a ordem da Tabela 1, do menor para o maior risco.</p>
+
+<!-- ======================================================= 5 MAPA DE AGENTES -->
+<h1 id="s5" class="quebra-pagina"><span class="num">5</span>Mapa de agentes de IA</h1>
+<p>A Figura 5 apresenta os três agentes propostos, com objetivo, problema resolvido, usuários envolvidos e benefício esperado, e o Quadro 6 define o que cada um pode fazer sozinho, o que depende de aprovação humana e os principais riscos. Os números citados vêm do diagnóstico do capítulo 3.</p>
+
+<figure>
+<p class="legenda"><b>Figura 5</b> – Mapa dos agentes de IA propostos para a Olist</p>
+<table class="mapa">
+<tbody><tr>
+<td class="card"><div>
+  <div class="n">AGENTE 01</div>
+  <div class="nome">Analista de Reviews</div>
+  <div class="campo">Objetivo</div>
+  <div class="txt">Ler cada avaliação assim que chega, classificar o sentimento e a causa do problema e consolidar padrões por vendedor, categoria e rota.</div>
+  <div class="campo">Problema resolvido</div>
+  <div class="txt">14,7% das avaliações são negativas e três quartos delas trazem comentário. Sem leitura sistemática, problemas recorrentes de um vendedor ou produto demoram a ser percebidos.</div>
+  <div class="campo">Usuários envolvidos</div>
+  <div class="txt">Equipe de qualidade do marketplace, gestão de vendedores, vendedores (por meio de um painel) e diretoria (resumo semanal).</div>
+  <div class="campo">Benefício esperado</div>
+  <div class="txt">Problemas detectados em dias, e não em semanas; prioridade clara de quais vendedores e categorias tratar; insumo para os outros dois agentes.</div>
+</div></td>
+<td class="card"><div>
+  <div class="n">AGENTE 02</div>
+  <div class="nome">Guardião Logístico</div>
+  <div class="campo">Objetivo</div>
+  <div class="txt">Acompanhar os pedidos em trânsito, estimar o risco de atraso e agir antes do vencimento do prazo: avisar o cliente, cobrar a postagem do vendedor e acionar a transportadora.</div>
+  <div class="campo">Problema resolvido</div>
+  <div class="txt">6,8% das entregas atrasam, com até 21% em alguns estados e 19% em meses de pico. Pedidos atrasados têm nota média 2,3, contra 4,3 dos entregues no prazo.</div>
+  <div class="campo">Usuários envolvidos</div>
+  <div class="txt">Clientes, equipe de operações logísticas, vendedores e transportadoras parceiras.</div>
+  <div class="campo">Benefício esperado</div>
+  <div class="txt">Cliente informado antes de reclamar, menos contatos do tipo “onde está meu pedido” e menos avaliações negativas causadas por atraso.</div>
+</div></td>
+<td class="card"><div>
+  <div class="n">AGENTE 03</div>
+  <div class="nome">SAC Agêntico</div>
+  <div class="campo">Objetivo</div>
+  <div class="txt">Atender o cliente no chat e no WhatsApp, informar a situação do pedido e conduzir trocas, devoluções e cancelamentos dentro da política, encaminhando as exceções a um atendente.</div>
+  <div class="campo">Problema resolvido</div>
+  <div class="txt">Falta de retorno (15%) e dificuldades com reembolso, troca ou cancelamento (14%) estão entre as reclamações mais citadas. Pedidos não entregues têm nota média 1,7.</div>
+  <div class="campo">Usuários envolvidos</div>
+  <div class="txt">Clientes, analistas de atendimento (casos escalados), financeiro (estornos) e vendedores.</div>
+  <div class="campo">Benefício esperado</div>
+  <div class="txt">Resposta imediata a qualquer hora, política aplicada de forma consistente e atendentes dedicados aos casos que exigem julgamento.</div>
+</div></td>
+</tr></tbody></table>
+<p class="fonte">Fonte: elaborado pelos autores (2026).</p>
+</figure>
+
+<div class="quadro inteiro compacta">
+<p class="legenda"><b>Quadro 6</b> – Autonomia, limites e riscos de cada agente</p>
+<table>
+<thead><tr><th style="width:16%"></th><th style="width:28%">Analista de Reviews</th><th style="width:28%">Guardião Logístico</th><th>SAC Agêntico</th></tr></thead>
+<tbody>
+<tr><td class="rotulo">Autonomia</td><td>baixa: analisa e recomenda</td><td>média: envia avisos padronizados</td><td>média: resolve casos previstos na política</td></tr>
+<tr><td class="rotulo">Age sem aprovação</td><td>classificar avaliações; gerar alertas e relatórios</td><td>avisar o cliente com modelo aprovado; lembrar o vendedor da postagem; abrir chamado com a transportadora</td><td>informar status; aprovar troca ou devolução elegível de até R$ 500; gerar etiqueta de postagem</td></tr>
+<tr><td class="rotulo">Exige aprovação humana</td><td>qualquer medida contra um vendedor</td><td>compensação financeira ao cliente; alteração do prazo prometido</td><td>valores acima de R$ 500; casos fora da política; cliente que pede um atendente</td></tr>
+<tr><td class="rotulo">Principais riscos</td><td>classificação errada (ironia, gírias); julgamento injusto de vendedor</td><td>alarme falso; nova data que também não se cumpre</td><td>aprovação indevida; promessa que a empresa não cumpre; exposição de dados pessoais</td></tr>
+</tbody></table>
+<p class="fonte">Fonte: elaborado pelos autores (2026).</p>
+</div>
+
+<!-- ======================================================= 6 ARQUITETURA -->
+<h1 id="s6" class="quebra-pagina"><span class="num">6</span>Arquitetura conceitual inicial</h1>
+<p>A Figura 6 mostra como os agentes se conectam às fontes de dados e a quem entregam resultados. O desenho é conceitual: não define fornecedores nem tecnologias, que serão escolhidos na fase de prototipação. A arquitetura tem três camadas.</p>
+
+<figure>
+<p class="legenda"><b>Figura 6</b> – Arquitetura conceitual da solução multiagente</p>
+<!--SVG_ARQUITETURA-->
+<p class="fonte">Fonte: elaborado pelos autores (2026).</p>
+</figure>
+
+
+<p>A primeira camada reúne as <strong>fontes de dados</strong>: a base transacional (pedidos, itens, pagamentos, clientes, vendedores e produtos), as avaliações, os eventos de rastreamento das transportadoras, as mensagens dos canais de atendimento e os documentos de política, que alimentam a busca por RAG.</p>
+<p>Na segunda camada, um <strong>orquestrador</strong> recebe cada evento, como uma nova avaliação, uma mudança no rastreio ou uma mensagem de cliente, e aciona o agente responsável. Os três agentes compartilham uma memória com o histórico de cada cliente e pedido, e todas as chamadas passam pelos mesmos controles: remoção de dados pessoais desnecessários antes do envio ao modelo, limites de autonomia e registro das decisões.</p>
+<p>A terceira camada reúne as <strong>saídas e os usuários</strong>: mensagens e etiquetas para clientes, uma fila de exceções com o caso resumido para o atendimento humano, alertas para vendedores e para a operação logística, e um painel de indicadores para a gestão. O Quadro 7 detalha as entradas, as saídas e as interações de cada agente.</p>
+
+
+<div class="quadro inteiro">
+<p class="legenda"><b>Quadro 7</b> – Entradas, saídas e interações de cada agente</p>
+<table>
+<thead><tr><th style="width:15%">Agente</th><th style="width:27%">Entradas</th><th style="width:29%">Saídas</th><th>Interage com</th></tr></thead>
+<tbody>
+<tr><td class="rotulo">Analista de Reviews</td><td>avaliações (nota e comentário); dados do pedido, do produto e do vendedor</td><td>classificação de cada avaliação; alertas por vendedor e categoria; relatório semanal</td><td>envia ao Guardião os padrões de atraso por rota e vendedor; recebe do SAC os motivos de contato</td></tr>
+<tr><td class="rotulo">Guardião Logístico</td><td>prazos do pedido; eventos de rastreio; prazo-limite de postagem; histórico de atraso por rota</td><td>aviso ao cliente; lembrete ao vendedor; chamado com a transportadora</td><td>registra na memória os pedidos em risco e os avisos enviados, consultados pelo SAC</td></tr>
+<tr><td class="rotulo">SAC Agêntico</td><td>mensagem do cliente; histórico do pedido; trechos da política (RAG); pagamentos</td><td>resposta ao cliente; etiqueta de devolução; caso escalado com resumo</td><td>usa a memória alimentada pelo Guardião; envia ao Analista os motivos de contato</td></tr>
+</tbody></table>
+<p class="fonte">Fonte: elaborado pelos autores (2026).</p>
+</div>
+
+<h2 id="s6-1"><span class="num">6.1</span>Exemplo de funcionamento</h2>
+<p>Para tornar o desenho concreto, acompanhamos um pedido de jogo de cama, da categoria mais vendida, comprado por uma cliente de Maceió, capital do estado com a maior taxa de atraso da base.</p>
+<ol class="passos">
+  <li><b>Postagem atrasada.</b> O vendedor não posta o pedido até o prazo-limite. O Guardião Logístico detecta o evento, envia um lembrete ao vendedor e marca o pedido como risco médio.</li>
+  <li><b>Pacote parado.</b> Dois dias depois, o rastreio mostra o pacote parado no centro de distribuição. O risco passa a alto. O Guardião avisa a cliente pelo WhatsApp, com a nova previsão de entrega, e abre um chamado com a transportadora.</li>
+  <li><b>Contato da cliente.</b> A cliente responde perguntando se pode cancelar. O SAC Agêntico encontra na memória o histórico do atraso, explica as opções e, como o valor está abaixo de R$ 500, processa o cancelamento sem passar pela fila.</li>
+  <li><b>Aprendizado.</b> Se a cliente optar por esperar e depois avaliar o pedido com nota baixa, o Analista de Reviews classifica a causa como atraso na entrega e soma o caso às estatísticas da rota e do vendedor. Se o padrão se repetir, a gestão de vendedores recebe um alerta.</li>
+</ol>
+
+<!-- ======================================================= 7 PROMPTS -->
+<h1 id="s7"><span class="num">7</span>Estruturação de prompts</h1>
+<p>Os prompts a seguir são instruções de sistema, isto é, o texto fixo que define o papel e as regras de cada agente. Todos seguem a mesma estrutura: papel, dados recebidos, tarefa, regras e formato da resposta. Pedir a resposta em JSON permite que outros sistemas leiam o resultado e que se verifique automaticamente se o agente respondeu no formato combinado. Os campos entre chaves, como <span class="mono">{comentario}</span>, são preenchidos pelo orquestrador a cada execução.</p>
+
+<h2 id="s7-1"><span class="num">7.1</span>Agente 01 – Analista de Reviews</h2>
+<div class="ficha">
+<p><b>a) Objetivo do prompt.</b> Classificar uma avaliação quanto a sentimento, causa principal e urgência, e indicar a área responsável e a ação sugerida.</p>
+<p><b>b) Contexto fornecido.</b> Identificador do pedido; nota; comentário; categoria do produto; situação da entrega e dias de atraso; quantidade de itens e de vendedores no pedido.</p>
+<p><b>c) Instrução principal.</b></p>
+</div>
+<pre>Você é o Analista de Reviews da Olist, uma loja que reúne milhares de pequenos
+vendedores nos grandes marketplaces. Sua função é entender por que o cliente
+ficou insatisfeito e indicar quem deve agir.
+
+Dados da avaliação:
+- Pedido: <span class="var">{id_pedido}</span>
+- Nota: <span class="var">{nota}</span> de 5
+- Comentário: "<span class="var">{comentario}</span>"
+- Categoria do produto: <span class="var">{categoria}</span>
+- Situação da entrega: <span class="var">{situacao_entrega}</span> (<span class="var">{dias_atraso}</span> dias de atraso)
+- Itens no pedido: <span class="var">{qtd_itens}</span>, de <span class="var">{qtd_vendedores}</span> vendedor(es)
+
+Tarefa:
+1. Classifique o sentimento como positivo, neutro ou negativo, considerando o
+   texto e não apenas a nota.
+2. Se houver problema, escolha a causa principal entre: atraso na entrega,
+   pedido não recebido, entrega parcial, produto errado ou diferente do anúncio,
+   defeito ou avaria, atendimento, outro.
+3. Defina a urgência: alta se o cliente ainda não recebeu o produto ou pede
+   reembolso; média se recebeu com problema; baixa nos demais casos.
+4. Indique a área responsável (logística, vendedor, atendimento ou catálogo) e
+   sugira uma ação em até 25 palavras.
+
+Regras:
+- Use apenas as informações fornecidas. Se o comentário estiver vazio ou for
+  ambíguo, use a causa "outro" e confiança "baixa".
+- Não inclua nome, telefone, e-mail ou documento do cliente na resposta.
+- Responda somente com o JSON no formato indicado, sem texto adicional.</pre>
+<div class="ficha"><p><b>d) Resultado esperado.</b> Para o comentário real <em>“pedi duas unidades do mesmo produto e só veio uma unidade e ninguém me da um retorno”</em>, em um pedido de dois itens entregue no prazo, a saída esperada é:</p></div>
+<pre class="json">{
+  "id_pedido": "a3f9c1e2",
+  "sentimento": "negativo",
+  "causa_principal": "entrega parcial",
+  "causa_secundaria": "atendimento",
+  "urgencia": "alta",
+  "area_responsavel": "vendedor",
+  "acao_sugerida": "Confirmar com o vendedor o envio da segunda unidade e informar o cliente sobre a nova data ou o reembolso parcial.",
+  "confianca": "alta"
+}</pre>
+
+<h2 id="s7-2"><span class="num">7.2</span>Agente 02 – Guardião Logístico</h2>
+<div class="ficha">
+<p><b>a) Objetivo do prompt.</b> Avaliar o risco de atraso de um pedido em trânsito e decidir quais ações tomar: avisar o cliente, cobrar o vendedor ou acionar a transportadora.</p>
+<p><b>b) Contexto fornecido.</b> Datas de compra e de entrega prometida; prazo-limite e data efetiva de postagem; último evento de rastreio; UF de origem e de destino; taxa histórica de atraso para o destino; avisos já enviados ao cliente (memória).</p>
+<p><b>c) Instrução principal.</b></p>
+</div>
+<pre>Você é o Guardião Logístico da Olist. Seu objetivo é evitar que o cliente seja
+surpreendido por um atraso. Você acompanha pedidos em trânsito e decide se é
+preciso agir.
+
+Dados do pedido:
+- Pedido: <span class="var">{id_pedido}</span> | Compra: <span class="var">{data_compra}</span> | Entrega prometida: <span class="var">{data_prometida}</span>
+- Postagem: limite em <span class="var">{limite_postagem}</span>, realizada em <span class="var">{data_postagem}</span>
+- Último evento de rastreio: "<span class="var">{ultimo_evento}</span>" em <span class="var">{data_evento}</span>
+- Rota: <span class="var">{uf_origem}</span> para <span class="var">{uf_destino}</span> (destino com <span class="var">{taxa_atraso_destino}</span>% de atraso histórico)
+- Avisos já enviados ao cliente: <span class="var">{avisos_anteriores}</span>
+
+Tarefa:
+1. Classifique o risco de atraso como baixo, médio ou alto e explique o motivo
+   em uma frase.
+2. Se o risco for médio ou alto e o cliente ainda não tiver sido avisado,
+   redija uma mensagem de WhatsApp de até 300 caracteres, em tom cordial e sem
+   jargão. Use o marcador {primeiro_nome} no lugar do nome do cliente.
+3. Se a postagem ainda não tiver sido feita e o prazo-limite já tiver passado,
+   gere um lembrete ao vendedor.
+4. Se o atraso previsto for maior que 3 dias, indique a abertura de chamado com
+   a transportadora.
+
+Regras:
+- Nunca prometa compensação, desconto ou data que não esteja nos dados.
+- Não envie mais de um aviso ao mesmo cliente em um intervalo de 48 horas.
+- Responda somente com o JSON no formato indicado, sem texto adicional.</pre>
+<div class="ficha"><p><b>d) Resultado esperado.</b> Pedido de São Paulo para Alagoas, postado dois dias depois do limite e parado há quatro dias no centro de distribuição. Como a postagem já foi feita, não há lembrete ao vendedor; como o atraso previsto passa de 3 dias, abre-se o chamado. O sistema substitui o marcador pelo nome do cliente só no momento do envio, de modo que o modelo não tem acesso a esse dado.</p></div>
+<pre class="json">{
+  "id_pedido": "7b21e0d4",
+  "risco_atraso": "alto",
+  "motivo": "Postagem 2 dias após o limite e pacote parado há 4 dias; destino AL tem 21% de atraso histórico.",
+  "dias_atraso_previstos": 5,
+  "mensagem_cliente": "Olá, {primeiro_nome}! Seu pedido teve um atraso no transporte e a nova previsão de entrega é 18/10. Já estamos acompanhando com a transportadora e avisaremos qualquer novidade por aqui.",
+  "lembrete_vendedor": null,
+  "abrir_chamado_transportadora": true
+}</pre>
+
+<h2 id="s7-3"><span class="num">7.3</span>Agente 03 – SAC Agêntico</h2>
+<div class="ficha">
+<p><b>a) Objetivo do prompt.</b> Resolver no chat solicitações de status, troca, devolução e cancelamento conforme a política da Olist e encaminhar a um atendente o que estiver fora das regras.</p>
+<p><b>b) Contexto fornecido.</b> Mensagem do cliente; dados do pedido (itens, valor, datas e situação); histórico do cliente e avisos já enviados (memória); trechos da política de trocas e devoluções recuperados da base de conhecimento.</p>
+<p><b>c) Instrução principal.</b></p>
+</div>
+<pre>Você é o assistente virtual de atendimento da Olist e conversa com clientes
+pelo chat e pelo WhatsApp. Resolva o que estiver ao seu alcance e seja
+transparente quando precisar passar o caso para um atendente.
+
+Informações disponíveis:
+- Mensagem do cliente: "<span class="var">{mensagem}</span>"
+- Pedido: <span class="var">{id_pedido}</span> | Valor: R$ <span class="var">{valor}</span> | Entregue em: <span class="var">{data_entrega}</span>
+- Histórico do cliente e do pedido: <span class="var">{memoria}</span>
+- Política aplicável: <span class="var">{trechos_politica}</span>
+
+Tarefa:
+1. Identifique a intenção: consultar status, trocar, devolver por
+   arrependimento, relatar defeito, cancelar ou outra.
+2. Verifique a elegibilidade usando apenas a política fornecida. A devolução
+   por arrependimento vale por 7 dias a partir do recebimento (CDC, art. 49).
+3. Se o caso for elegível e o valor for de até R$ 500, aprove e acione a
+   ferramenta gerar_etiqueta_devolucao.
+4. Encaminhe para um atendente se o valor passar de R$ 500, se a política não
+   cobrir o caso ou se o cliente pedir para falar com uma pessoa.
+5. Escreva a resposta ao cliente em linguagem simples, em até 4 frases.
+
+Regras:
+- Apresente-se como assistente virtual na primeira mensagem.
+- Não invente prazos, valores ou regras que não estejam nas informações acima.
+- Não peça nem repita CPF, endereço ou dados de cartão.
+- Responda somente com o JSON no formato indicado, sem texto adicional.</pre>
+<div class="ficha"><p><b>d) Resultado esperado.</b> Cliente pede para devolver, por arrependimento, um produto de R$ 189,90 recebido há três dias:</p></div>
+<pre class="json">{
+  "id_atendimento": "chat-55120",
+  "intencao": "devolver por arrependimento",
+  "elegivel": true,
+  "acao_executada": "gerar_etiqueta_devolucao",
+  "codigo_postagem": "LR482913057BR",
+  "encaminhar_humano": false,
+  "motivo_encaminhamento": null,
+  "resposta_cliente": "Pronto, sua devolução foi aprovada! Enviamos a etiqueta de postagem para o seu e-mail; é só levar o produto embalado a uma agência dos Correios. O estorno é feito assim que o vendedor receber o item, conforme a nossa política de devolução."
+}</pre>
+
+<p>Os três prompts compartilham três cuidados: limitar o agente aos dados fornecidos, fixar o formato da resposta e deixar explícito quando ele deve parar e chamar uma pessoa. Antes de qualquer uso real, cada prompt seria testado contra uma amostra do histórico. No caso do Analista de Reviews, por exemplo, a classificação do agente seria comparada com a de analistas humanos em algumas centenas de avaliações.</p>
+
+<!-- ======================================================= 8 GOVERNANÇA -->
+<h1 id="s8"><span class="num">8</span>Governança, riscos e limitações</h1>
+
+<h2 id="s8-1"><span class="num">8.1</span>Princípios de uso responsável</h2>
+<p><strong>Proteção de dados.</strong> Os agentes recebem apenas os dados necessários para cada tarefa. Nome, CPF, telefone e endereço são removidos ou trocados por marcadores antes do envio ao modelo e reinseridos depois, no momento do envio da mensagem, como no exemplo do Guardião Logístico. O tratamento se apoia na execução do contrato com o cliente e no legítimo interesse, previstos no art. 7º da Lei Geral de Proteção de Dados (BRASIL, 2018), e os registros seguem prazos de retenção definidos.</p>
+<p><strong>Permissões mínimas.</strong> Cada agente acessa somente o que precisa. O Analista de Reviews apenas lê dados. O Guardião envia mensagens a partir de modelos aprovados. Só o SAC aciona ferramentas que geram custo, como etiquetas e estornos, e sempre dentro de limites de valor.</p>
+<p><strong>Regras críticas verificadas por código.</strong> Limites como o valor de R$ 500 e o prazo de 7 dias são conferidos por regras fixas no sistema, e não apenas pela instrução ao modelo. Se a resposta do agente violar uma regra, a ação é bloqueada e o caso vai para um atendente.</p>
+<p><strong>Transparência e rastreabilidade.</strong> O cliente sabe quando conversa com um assistente virtual e pode pedir um atendente a qualquer momento. Cada decisão fica registrada com os dados usados e a justificativa, o que permite auditar e corrigir erros.</p>
+<p>Para as fases seguintes, propomos adotar como referência o <em>AI Risk Management Framework</em> do NIST (2023) e a norma ISO/IEC 42001 (INTERNATIONAL ORGANIZATION FOR STANDARDIZATION, 2023), que organizam papéis, avaliação de riscos e monitoramento contínuo de sistemas de IA.</p>
+
+<h2 id="s8-2"><span class="num">8.2</span>Matriz de riscos</h2>
+<div class="quadro">
+<p class="legenda"><b>Quadro 8</b> – Principais riscos, probabilidade, impacto e mitigação</p>
+<table>
+<thead><tr><th style="width:27%">Risco</th><th style="width:11%">Probabilidade</th><th style="width:10%">Impacto</th><th>Mitigação</th></tr></thead>
+<tbody>
+<tr><td class="rotulo">Resposta inventada, como uma regra de devolução inexistente</td><td>média</td><td>alto</td><td>política recuperada da base oficial (RAG); proibição explícita no prompt; validação do formato; revisão por amostragem</td></tr>
+<tr><td class="rotulo">Exposição de dados pessoais</td><td>baixa</td><td>alto</td><td>remoção de dados pessoais antes do modelo; acesso mínimo; contrato com o fornecedor do modelo vedando a retenção dos dados</td></tr>
+<tr><td class="rotulo">Aprovação indevida de devolução ou compensação</td><td>média</td><td>médio</td><td>limite de R$ 500; elegibilidade conferida por regras fixas; auditoria semanal por amostragem</td></tr>
+<tr><td class="rotulo">Alarme falso de atraso</td><td>média</td><td>baixo</td><td>aviso apenas com risco médio ou alto; no máximo um aviso a cada 48 horas; calibração com o histórico</td></tr>
+<tr><td class="rotulo">Julgamento injusto de um vendedor</td><td>baixa</td><td>médio</td><td>nenhuma medida automática; revisão humana antes de qualquer ação</td></tr>
+<tr><td class="rotulo">Falha de sistemas externos (rastreio, Correios)</td><td>média</td><td>médio</td><td>novas tentativas automáticas, fila de mensagens e encaminhamento ao atendimento humano</td></tr>
+<tr><td class="rotulo">Rejeição por clientes ou pela equipe interna</td><td>média</td><td>médio</td><td>opção de falar com atendente; participação da equipe desde o piloto; comunicação clara do papel dos agentes</td></tr>
+</tbody></table>
+<p class="fonte">Fonte: elaborado pelos autores (2026).</p>
+</div>
+
+<h2 id="s8-3"><span class="num">8.3</span>Limitações deste estudo</h2>
+<ul>
+  <li>Os dados cobrem de 2016 a 2018. Volumes, prazos e canais mudaram desde então (o Pix, por exemplo, ainda não existia). Os números servem como linha de base de referência e devem ser atualizados com dados atuais da empresa.</li>
+  <li>O dataset não traz custos nem volume de atendimento, nem o detalhe dos eventos de rastreio. Por isso não estimamos a economia em reais.</li>
+  <li>A classificação de temas por palavras-chave é aproximada e serve para dimensionar o problema, não para uso operacional.</li>
+  <li>As relações entre atraso, nota e recompra são correlações; outros fatores não foram isolados.</li>
+  <li>Na anonimização, os nomes de empresas citados nos comentários foram trocados por nomes de casas de <em>Game of Thrones</em>, o que limita algumas leituras dos textos.</li>
+</ul>
+
+<!-- ======================================================= 9 IMPACTO -->
+<h1 id="s9"><span class="num">9</span>Impacto esperado e próximos passos</h1>
+
+<h2 id="s9-1"><span class="num">9.1</span>Roteiro de implantação</h2>
+<p>Propomos implantar os agentes em três ondas (o termo evita confusão com as fases do curso). Cada onda só começa quando a anterior atinge o critério de avanço definido, e as metas de cada indicador estão na seção 9.2.</p>
+
+<figure class="mantem">
+<p class="legenda"><b>Figura 7</b> – Roteiro de implantação em três ondas</p>
+<table class="ondas">
+<tbody><tr>
+<td><div class="prazo">Onda 1 · 0 a 30 dias</div><div class="titulo">Piloto do Analista</div>
+<div class="txt">Analista de Reviews sobre a base histórica e as avaliações novas, apenas com leitura de dados e sem contato com clientes.</div>
+<div class="criterio"><b>Para avançar:</b> concordância de pelo menos 85% com a classificação de analistas humanos em uma amostra de 500 avaliações.</div></td>
+<td><div class="prazo">Onda 2 · 31 a 90 dias</div><div class="titulo">Operação assistida</div>
+<div class="txt">Guardião Logístico nas rotas com mais atraso (Nordeste e Rio de Janeiro) e SAC Agêntico para consultas de status, com revisão humana das mensagens nas duas primeiras semanas.</div>
+<div class="criterio"><b>Para avançar:</b> menos de 5% de avisos considerados indevidos e nenhuma violação das regras de dados pessoais.</div></td>
+<td><div class="prazo">Onda 3 · 91 a 180 dias</div><div class="titulo">Escala integrada</div>
+<div class="txt">Integração dos três agentes pela memória compartilhada; SAC passa a processar trocas e devoluções dentro dos limites; painel de indicadores para a diretoria.</div>
+<div class="criterio"><b>Para avançar:</b> metas do Quadro 9 atingidas ou com tendência clara de melhora.</div></td>
+</tr></tbody></table>
+<p class="fonte">Fonte: elaborado pelos autores (2026).</p>
+</figure>
+
+<h2 id="s9-2"><span class="num">9.2</span>Indicadores e metas</h2>
+<p>O dataset permite medir a linha de base da maioria dos indicadores relevantes. As metas do Quadro 9 são hipóteses para o piloto, a validar com dados atuais da Olist. Preferimos metas modestas e mensuráveis a promessas difíceis de verificar.</p>
+
+<div class="quadro">
+<p class="legenda"><b>Quadro 9</b> – Indicadores, linha de base e metas para o piloto</p>
+<table>
+<thead><tr><th style="width:31%">Indicador</th><th style="width:25%">Linha de base (2016–2018)</th><th style="width:24%">Meta para o piloto</th><th>Agente</th></tr></thead>
+<tbody>
+<tr><td class="rotulo">Entregas com atraso</td><td>6,8% (até 19% em meses de pico)</td><td>−1 ponto percentual nas rotas monitoradas</td><td>Guardião</td></tr>
+<tr><td class="rotulo">Pedidos postados fora do prazo-limite</td><td>9,0%</td><td>reduzir à metade</td><td>Guardião</td></tr>
+<tr><td class="rotulo">Notas 1 e 2 entre pedidos atrasados</td><td>62%</td><td>abaixo de 50%</td><td>Guardião e SAC</td></tr>
+<tr><td class="rotulo">Notas 1 e 2 no total de avaliações</td><td>14,7%</td><td>abaixo de 13%</td><td>os três</td></tr>
+<tr><td class="rotulo">Avaliações negativas classificadas e encaminhadas</td><td>não medido no dataset</td><td>100%, em até 24 horas</td><td>Analista</td></tr>
+<tr><td class="rotulo">Contatos resolvidos sem atendente</td><td>a medir no piloto</td><td>50% dos contatos elegíveis</td><td>SAC</td></tr>
+<tr><td class="rotulo">Tempo até a primeira resposta</td><td>a medir no piloto</td><td>menos de 1 minuto</td><td>SAC</td></tr>
+<tr><td class="rotulo">Recompra em até 6 meses</td><td>4,1%</td><td>acompanhar; meta definida na Fase 2</td><td>os três</td></tr>
+</tbody></table>
+<p class="fonte">Fonte: elaborado pelos autores (2026), com linha de base calculada a partir de Olist (2018).</p>
+</div>
+
+<p>O indicador mais sensível ao trabalho dos agentes é a proporção de notas baixas entre pedidos atrasados. Avisar o cliente antes do prazo não elimina o atraso, mas muda a experiência: o cliente deixa de ser surpreendido e recebe uma explicação e uma nova data. Como hoje 62% dos pedidos atrasados recebem nota 1 ou 2, há espaço para melhora mesmo que a taxa de atraso continue igual.</p>
+
+<h2 id="s9-3"><span class="num">9.3</span>Evolução nas próximas fases do curso</h2>
+<p>Este relatório é o ponto de partida do projeto, que será reaproveitado e ampliado ao longo da pós-graduação, como mostra o Quadro 10.</p>
+
+<div class="quadro inteiro">
+<p class="legenda"><b>Quadro 10</b> – Evolução prevista do projeto nas fases seguintes</p>
+<table>
+<thead><tr><th style="width:24%">Fase do curso</th><th>O que será desenvolvido</th></tr></thead>
+<tbody>
+<tr><td class="rotulo">Fase 2 – Casos de uso</td><td>detalhar fluxos, regras de decisão e critérios de escalonamento de cada agente; desenhar o agente de relacionamento e recompra</td></tr>
+<tr><td class="rotulo">Fase 3 – Protótipos</td><td>construir o Analista de Reviews em plataforma <em>low-code</em> e validá-lo sobre os comentários do dataset</td></tr>
+<tr><td class="rotulo">Fase 4 – Orquestração</td><td>integrar os três agentes, a memória compartilhada e as automações de mensagens e logística</td></tr>
+<tr><td class="rotulo">Fase 5 – Governança e escala</td><td>definir papéis, comitê de IA, políticas de uso e plano de expansão para outras áreas da empresa</td></tr>
+</tbody></table>
+<p class="fonte">Fonte: elaborado pelos autores (2026).</p>
+</div>
+
+<!-- ======================================================= 10 VÍDEO -->
+<h1 id="s10"><span class="num">10</span>Vídeo executivo</h1>
+<p>O vídeo de apresentação do projeto à diretoria da Olist, com até cinco minutos, está disponível em: <span class="placeholder">[inserir o link do vídeo]</span>. O Quadro 11 resume o roteiro.</p>
+
+<div class="quadro inteiro">
+<p class="legenda"><b>Quadro 11</b> – Roteiro do vídeo executivo</p>
+<table>
+<thead><tr><th style="width:16%">Tempo</th><th>Conteúdo</th></tr></thead>
+<tbody>
+<tr><td class="mono">0:00–0:30</td><td>abertura: quem somos e a pergunta que a Olist nos fez</td></tr>
+<tr><td class="mono">0:30–1:45</td><td>o que os dados mostram: atrasos, notas, comentários e recompra</td></tr>
+<tr><td class="mono">1:45–3:15</td><td>os três agentes e como trabalham juntos (mapa e arquitetura)</td></tr>
+<tr><td class="mono">3:15–4:15</td><td>riscos, controles e indicadores de acompanhamento</td></tr>
+<tr><td class="mono">4:15–5:00</td><td>próximos passos e decisão solicitada: aprovar o piloto de 30 dias</td></tr>
+</tbody></table>
+<p class="fonte">Fonte: elaborado pelos autores (2026).</p>
+</div>
+
+<!-- ======================================================= 11 CONSIDERAÇÕES -->
+<h1 id="s11"><span class="num">11</span>Considerações finais</h1>
+<p>A análise dos 99.441 pedidos mostra que a experiência do cliente da Olist se decide depois da venda. Atrasos, entregas incompletas e falta de retorno explicam a maior parte das avaliações negativas, e a nota média cai de 4,3 para 2,3 quando o prazo não é cumprido. São problemas de coordenação entre muitos vendedores, transportadoras e canais, e é nesse tipo de problema que agentes de IA têm mais a contribuir, porque conseguem acompanhar cada pedido, ler cada comentário e responder a qualquer hora.</p>
+<p>A proposta começa pelo agente de menor risco e maior viabilidade, o Analista de Reviews, e avança para o Guardião Logístico e o SAC Agêntico à medida que os resultados se confirmam. Limites de autonomia, proteção de dados e supervisão humana fazem parte do desenho desde o início, e não como etapa posterior.</p>
+<p>A principal limitação do trabalho é a idade dos dados, que cobrem de 2016 a 2018. As conclusões sobre onde estão os problemas tendem a se manter, mas os números precisam ser atualizados com a base atual da empresa antes de qualquer decisão de investimento. Nas próximas fases, o grupo vai detalhar os casos de uso, construir os protótipos e testar as hipóteses de impacto apresentadas aqui.</p>
+
+<!-- ======================================================= REFERÊNCIAS -->
+<h1 id="ref" class="quebra-pagina">Referências</h1>
+<div class="referencias">
+<p>ANTHROPIC. <strong>Building effective agents</strong>. [<em>S. l.</em>], 19 dez. 2024. Disponível em: https://www.anthropic.com/engineering/building-effective-agents. Acesso em: 6 out. 2026.</p>
+<p>BRASIL. Lei nº 8.078, de 11 de setembro de 1990. Dispõe sobre a proteção do consumidor e dá outras providências. <strong>Diário Oficial da União</strong>: seção 1, Brasília, DF, 12 set. 1990.</p>
+<p>BRASIL. Lei nº 13.709, de 14 de agosto de 2018. Lei Geral de Proteção de Dados Pessoais (LGPD). <strong>Diário Oficial da União</strong>: seção 1, Brasília, DF, 15 ago. 2018.</p>
+<p>INTERNATIONAL ORGANIZATION FOR STANDARDIZATION. <strong>ISO/IEC 42001:2023</strong>: information technology – artificial intelligence – management system. Genebra: ISO, 2023.</p>
+<p>LEWIS, P. <em>et al.</em> Retrieval-augmented generation for knowledge-intensive NLP tasks. <em>In</em>: CONFERENCE ON NEURAL INFORMATION PROCESSING SYSTEMS, 34., 2020. <strong>Advances in Neural Information Processing Systems 33</strong>. [<em>S. l.</em>]: Curran Associates, 2020. p. 9459-9474.</p>
+<p>NATIONAL INSTITUTE OF STANDARDS AND TECHNOLOGY. <strong>Artificial Intelligence Risk Management Framework (AI RMF 1.0)</strong>. Gaithersburg: NIST, 2023. DOI: 10.6028/NIST.AI.100-1.</p>
+<p>OLIST. <strong>Brazilian E-Commerce Public Dataset by Olist</strong>. [<em>S. l.</em>]: Kaggle, 2018. Disponível em: https://www.kaggle.com/datasets/olistbr/brazilian-ecommerce. Acesso em: 6 out. 2026.</p>
+<p>PARK, J. S. <em>et al.</em> Generative agents: interactive simulacra of human behavior. <em>In</em>: ACM SYMPOSIUM ON USER INTERFACE SOFTWARE AND TECHNOLOGY, 36., 2023, San Francisco. <strong>Proceedings</strong> [...]. New York: ACM, 2023.</p>
+<p>RUSSELL, S.; NORVIG, P. <strong>Inteligência artificial</strong>: uma abordagem moderna. 4. ed. Rio de Janeiro: GEN LTC, 2022.</p>
+<p>WENG, L. <strong>LLM powered autonomous agents</strong>. Lil’Log, 23 jun. 2023. Disponível em: https://lilianweng.github.io/posts/2023-06-23-agent/. Acesso em: 6 out. 2026.</p>
+<p>WOOLDRIDGE, M. <strong>An introduction to multiagent systems</strong>. 2. ed. Chichester: John Wiley &amp; Sons, 2009.</p>
+<p>YAO, S. <em>et al.</em> ReAct: synergizing reasoning and acting in language models. <em>In</em>: INTERNATIONAL CONFERENCE ON LEARNING REPRESENTATIONS, 11., 2023, Kigali. <strong>Proceedings</strong> [...]. [<em>S. l.</em>]: ICLR, 2023.</p>
+</div>
+
+</body>
+</html>
